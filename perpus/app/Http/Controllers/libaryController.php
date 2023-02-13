@@ -10,13 +10,13 @@ class libaryController extends Controller
 {
     public function index(Request $request) {
         if ($request -> search) {
-            $task = libary::where('nama buku', 'LIKE', "%$request->search%")
+            $task = libary::where('books', 'LIKE', "%$request->search%")
             ->get();
 
             return $task;
         }
         $task = libary::paginate(3);
-        return view('libary.index', [
+        return view('libarys.index', [
             'data' => $task
         ]);
         
@@ -27,35 +27,35 @@ class libaryController extends Controller
     }
 
     public function create(){
-        return view('task.create');
+        return view('libarys.create');
     }
 
     public function store(libaryRequest $request){
         libary::create([
-            'task' => $request->task,
+            'buku' => $request->task,
             'user' => $request->user
         ]);
         // return 'Success';
-        return redirect('/tasks');
+        return redirect('/list');
     }
 
     public function edit($id){
         $task = libary::find($id);
-        return view('task.edit', compact('task'));
+        return view('libarys.edit', compact('libarys'));
     }
     
     public function update(libaryRequest $request, $id){
         $task = libary::find($id);
         $task->update([
-            'task' => $request->task,
+            'buku' => $request->task,
             'user' => $request->user
         ]);
-        return redirect('/tasks');
+        return redirect('/list');
     }
 
     public function delete($id) {
         $task = libary::find($id)
         ->delete();
-        return redirect('/tasks');
+        return redirect('/list');
     }
 }

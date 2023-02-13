@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class libary extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'buku',
+        'user'
+    ];
 }
