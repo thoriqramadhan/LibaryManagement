@@ -2,8 +2,8 @@
 @section('main')
    <div class="border rounded mt-5 mx-auto d-flex flex-column align-items-stretch bg-white" style="width: 380px;">
        <div class="d-flex justify-content-between flex-shrink-0 p-3 link-dark  border-bottom">
-           <span class="fs-5 fw-semibold">Task Lists: {{ $data->total() }}</span>
-           <a href="{{ url('/buku/create') }}" class="btn btn-sm btn-primary">add</a>
+           <span class="fs-5 fw-semibold">Borrowed Lists: {{ $data->total() }}</span>
+           <a href="{{ url('/list/create') }}" class="btn btn-sm btn-primary">add</a>
        </div>
 
        @foreach ($data as $item)
@@ -15,10 +15,10 @@
                 </div>
                 <div class="col-10 mb-1 small">{{ $item->user }}</div>
                 <div class="group-action">
-                    <form action="{{ url("/buku/$item->id") }}" method='POST'>
+                    <form action="{{ url("/list/$item->id") }}" method='POST'>
                         @csrf
                         @method('DELETE')
-                        <a href="{{ url("/buku/$item->id/edit") }}" class="badge bg-info text-white">edit</a>
+                        <a href="{{ url("/list/$item->id/edit") }}" class="badge bg-info text-white">edit</a>
                         <button type="submit" class="badge bg-danger text-white">delete</button>
                     </form>
                 </div>

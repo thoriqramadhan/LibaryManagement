@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\libary;
+use App\Models\Libary;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +19,7 @@ class libaryFactory extends Factory
     {
         return [
             'user' => $this -> faker->name(),
-            'task' => $this -> faker->word()
+            'books' => $this -> faker->word()
         ];
     }
 }

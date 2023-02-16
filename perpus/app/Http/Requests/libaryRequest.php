@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Libary;
 use Illuminate\Foundation\Http\FormRequest;
 
 class libaryRequest extends FormRequest
@@ -23,9 +24,21 @@ class libaryRequest extends FormRequest
      */
     public function rules()
     {
+        // $rule_liblary_unique = Libary::unique('book', 'books');
+        // if($this->method() !== 'POST'){
+        //     $rule_liblary_unique -> ignore($this->route()->parameter('id'));
+        // }
+
         return [
-            'task' => ['required'],
+            'books' => ['required'],
             'user' => ['required']
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'required' => 'isian :attribute harus diisi',
+            'user.required' => 'nama pengguna harus diisi'
         ];
     }
 }
