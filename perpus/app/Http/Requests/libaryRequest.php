@@ -24,13 +24,13 @@ class libaryRequest extends FormRequest
      */
     public function rules()
     {
-        // $rule_liblary_unique = Libary::unique('book', 'books');
-        // if($this->method() !== 'POST'){
-        //     $rule_liblary_unique -> ignore($this->route()->parameter('id'));
-        // }
+        $rule_liblary_unique = Libary::unique('book', 'books');
+        if($this->method() !== 'POST'){
+            $rule_liblary_unique -> ignore($this->route()->parameter('id'));
+        }
 
         return [
-            'books' => ['required'],
+            'books' => ['required',$rule_liblary_unique],
             'user' => ['required']
         ];
     }
@@ -41,4 +41,6 @@ class libaryRequest extends FormRequest
             'user.required' => 'nama pengguna harus diisi'
         ];
     }
+    
 }
+

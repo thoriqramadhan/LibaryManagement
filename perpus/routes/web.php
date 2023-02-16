@@ -19,10 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/list',[libaryController::class, 'index']);
-Route::get('/list/create',[libaryController::class, 'create']);
-Route::post('/list', [libaryController::class, 'store']);
+Route::get('/list',[libaryController::class, 'index'])->middleware('auth');
+Route::get('/list/create',[libaryController::class, 'create'])->middleware('is_admin');
+Route::post('/list', [libaryController::class, 'store'])->middleware('is_admin');
 Route::get('/list/{id]',[libaryController::class, 'show'] );
-Route::get('/list/{id}/edit',[libaryController::class, 'edit']);
-Route::patch('/list/{id}',[libaryController::class, 'update']);
-Route::delete('/list/{id}', [libaryController::class, 'delete']);
+Route::get('/list/{id}/edit',[libaryController::class, 'edit'])->middleware('is_admin');
+Route::patch('/list/{id}',[libaryController::class, 'update'])->middleware('is_admin');
+Route::delete('/list/{id}', [libaryController::class, 'delete'])->middleware('is_admin');
