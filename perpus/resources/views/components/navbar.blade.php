@@ -2,7 +2,8 @@
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{{ url('/') }}" class="nav-link px-2 text-white">Home</a></li>
+                <li><a href="{{ url('/') }}" class="nav-link px-1 fs-3 fw-bold text-white">Home</a></li>
+                <li><a href="{{ url('list')}}" class="nav-link ml-5 px-1 text-white">List</a></li>
             </ul>
             <div class="text-end">
                 @guest   

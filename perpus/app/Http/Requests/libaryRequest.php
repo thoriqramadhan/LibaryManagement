@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Models\Libary;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class libaryRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class libaryRequest extends FormRequest
      */
     public function rules()
     {
-        $rule_liblary_unique = Libary::unique('book', 'books');
+        $rule_liblary_unique = Rule::unique('book', 'books');
         if($this->method() !== 'POST'){
             $rule_liblary_unique -> ignore($this->route()->parameter('id'));
         }

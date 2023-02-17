@@ -18,7 +18,7 @@ class libaryController extends Controller
             ->get();
             return $books;
         }
-        $books = Libary::paginate(3);
+        $books = Libary::paginate(4);
         return view('libarys.index', [
             'data' => $books
         ]);
