@@ -6,7 +6,7 @@ Hello there!, so this is one of my school project.
 
 So there is so features in this project one of the features is CRUD , validation , verify email and more
 
-:open_book: ### *How to clone this project*
+:open_book:  *How to clone this project*
 
 1. Run `git clone https://github.com/thoriqramadhan/LibaryManagement.git`
 2. Run `composer install`
